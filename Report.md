@@ -33,6 +33,18 @@ The model is a pretty straight forward actor-critic which consists of a two nura
 ## Learning Algorithm
 The learning Algorithm used was the DDDP which combined an actor-critic approach based on the DPG algorithm combined with a deep nueral network.
 
+The actor-critic approach has two neural networks which work to optimize the agent.
+
+The actor network takes an action based on the enviorments current state, the critic network then predicts what the future rewards will be back on the action chosen by the actor and the current state. Together the networks attempt to learn the best policy.
+
+Some things which help the model learn include:
+The ReplayBuffer(used in the Agent Class's init method) - is a Fixed-size buffer to store experience tuples including the state, action, reward, next_state, and done.
+
+### Experience Replay
+"experience replay that randomizes over the data, thereby removing correlations in the observation sequence and smoothing over changes in the data distribution." - [Deepmind paper](http://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf)
+
+
+
 
 The parameters used were:
 BUFFER_SIZE = int(1e6)  # replay buffer size
